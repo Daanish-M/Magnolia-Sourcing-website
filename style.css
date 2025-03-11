@@ -302,6 +302,7 @@ section.process {
 h3 {
     font-family: Didot Italic;
     font-size: 16px;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -364,6 +365,7 @@ section.work h1, section.work p, section.work h2 {
 h2 {
     font-family: Didot Roman;
     font-size: 32px;
+    font-weight: 400;
     text-transform: uppercase;
 }
 
