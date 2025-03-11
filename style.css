@@ -68,21 +68,23 @@ header {
 }
 
 div.top-header {
-    width: 100%;
+    width: fit-content;
     text-align: center;
     position: fixed;
     top: 20px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 500;
     animation: fade 1.5s ease;
 }
 
 div.bottom-header {
-    width: 100%;
+    width: fit-content;
     text-align: center;
     position: fixed;
     bottom: 20px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 500;
     animation: fade 1.5s ease;
 }
@@ -524,7 +526,7 @@ div.slides img {
     height: 450px;
 }
 
-div.top-header, div.bottom-header {
+div.top-header svg, div.bottom-header svg {
     transform: scale(0.8);
 }
 
@@ -648,7 +650,7 @@ section.testimonials div.testimonial-container {
 
 @media (max-width: 650px) {
 
-div.top-header, div.bottom-header {
+div.top-header svg, div.bottom-header svg {
     transform: scale(0.6);
 }
 
@@ -679,7 +681,7 @@ h1 {
 
 @media (max-width: 550px) {
 
-div.top-header, div.bottom-header {
+div.top-header svg, div.bottom-header svg {
     transform: scale(0.5);
 }
 
@@ -731,6 +733,7 @@ section.work div.work-content p {
     
     section.hero {
         transform: translateY(5%);
+        height: 60vh;
     }
 
     h1 {
@@ -742,8 +745,11 @@ section.work div.work-content p {
     }
     
     div.top-header {
-        transform: scale(0.3);
-        width:30%;
+        left: 120px;
+    }
+
+    div.top-header svg {
+        transform: scale(0.4);
     }
 
     section.portfolio div.outer-container div.inner-container {
