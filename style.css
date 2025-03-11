@@ -555,7 +555,7 @@ section.process div.part {
 }
 
 section.process div.part h1, section.process div.part p {
-    width: 80%;
+    width: 100%;
 }
 
 section.process div.part {
@@ -647,6 +647,10 @@ header div.logo svg {
 
 h1 {
     font-size: 32px;
+}
+
+h3, a.link {
+    font-weight: 700;
 }
 
 }
