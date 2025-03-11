@@ -104,6 +104,8 @@ header div.menu-toggle:hover span.menu-line:nth-child(2), header div.menu-toggle
     width: 40px;
 }
 
+/* menu styles */
+
 div.menu {
     position: fixed;
     top: 0;
@@ -209,10 +211,11 @@ section {
 }
 
 section.hero {
-    padding: 80px 24px;
+    padding: 80px 24px 0 24px;
     text-align: center;
     position: relative;
     height: 100vh;
+    margin-bottom: 0;
 }
 
 div.slides {
