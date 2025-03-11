@@ -124,7 +124,7 @@ div.menu.open {
 
 header div.menu-toggle span.menu-line.open {
     background-color: #faf7f2;
-    transform: translateY(10px) rotate(45deg);
+    transform: translateY(9.5px) rotate(45deg);
 }
 
 header div.menu-toggle span.menu-line:nth-child(2).open {
