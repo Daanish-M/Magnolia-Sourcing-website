@@ -604,7 +604,7 @@ footer {
 @media (max-width: 660px) {
 
 section.about, section.process, section.work {
-    padding: 40px;
+    padding: 32px;
 }
 
 div.menu {
@@ -697,7 +697,6 @@ header {
     div.slides {
         width: 350px;
         height: 350px;
-        transform: translateY(13%)
     }
     
     div.slides img {
@@ -707,6 +706,7 @@ header {
     
     section.hero {
         height: 60vh;
+        padding: 60px 24px 0 24px;
     }
 
     h1 {
@@ -759,7 +759,7 @@ header {
     }
 
     h3, a.link {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     section.portfolio div.outer-container div.inner-container {
