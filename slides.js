@@ -6,18 +6,17 @@ let z = 1
 
 slideArea.addEventListener("click", function() {
   currentSlide = currentSlide + 1
-  if (currentSlide > images.length - 1) {
-    currentSlide = 0
-  }
+  currentSlide = currentSlide % images.length
 
   z = z + 1
 
+  images[currentSlide].style.zIndex = z
+
   images.forEach(image => {
-    image.style.animation = ""
+    image.classList.remove("displayed")
   })
 
-  images[currentSlide].style.zIndex = z
-  images[currentSlide].style.animation = "fade 0.3s"
+  images[currentSlide].classList.add("displayed")
 })
 
 slideArea.addEventListener("mouseover", function() {

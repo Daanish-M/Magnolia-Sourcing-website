@@ -236,6 +236,10 @@ div.slides img {
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
+div.slides img.displayed {
+    animation: 0.2s ease 0s 1 normal none running fade;
+}
+
 div.slides img:nth-child(1) {
     z-index: 1;
 }
