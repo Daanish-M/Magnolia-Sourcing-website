@@ -233,6 +233,7 @@ section.hero {
     padding: 80px 24px;
     text-align: center;
     position: relative;
+    height: 100vh;
 }
 
 div.slides {
