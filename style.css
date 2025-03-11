@@ -419,7 +419,7 @@ section.work.in-view {
 
 
 section.intro {
-    height: 100vh;
+    height: 75vh;
     padding: 0 40px;
 }
 
@@ -733,9 +733,6 @@ header {
         margin: 0 0 40px 0;
     }
 
-    section.intro {
-        height: 80vh;
-    }
 
 }
 
