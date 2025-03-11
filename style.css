@@ -32,6 +32,8 @@
     src:url(Candara.ttf);
 }
 
+/* foundational styles */
+
 html {
     scroll-behavior: smooth;
 }
@@ -55,9 +57,11 @@ a {
     text-decoration: none;
 }
 
+/* header styles */
+
 header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 32px;
     position: fixed;
     left: 0;
@@ -67,47 +71,17 @@ header {
     box-sizing: border-box;
 }
 
-div.top-header {
-    width: fit-content;
-    text-align: center;
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 500;
-    animation: fade 1.5s ease;
-}
-
-div.bottom-header {
-    width: fit-content;
-    text-align: center;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 500;
-    animation: fade 1.5s ease;
-}
-
-div.top-header svg, div.bottom-header svg {
-    transition: transform 0.5s ease;
-}
-
-div.top-header svg.scrolled, div.bottom-header svg.scrolled {
-    transform: scale(0.3);
-}
-
 header div.menu-toggle {
+    position: absolute;
+    right: 32px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     align-items: flex-end;
     cursor: pointer;
     z-index: 1000;
     flex: 0;
-    position: absolute;
 }
-
 
 header div.menu-toggle span.menu-line {
     width: 40px;
@@ -526,10 +500,6 @@ div.slides img {
     height: 450px;
 }
 
-div.top-header svg, div.bottom-header svg {
-    transform: scale(0.8);
-}
-
 section.portfolio div.outer-container div.inner-container div.portfolio-highlight img {
     width: 350px;
     height: 350px;
@@ -650,10 +620,6 @@ section.testimonials div.testimonial-container {
 
 @media (max-width: 650px) {
 
-div.top-header svg, div.bottom-header svg {
-    transform: scale(0.6);
-}
-
 div.slides {
     width: 400px;
     height: 400px;
@@ -663,6 +629,11 @@ div.slides {
 div.slides img {
     width: 400px;
     height: 400px;
+}
+
+header div.logo svg {
+    width: 125px;
+    height: 20px;
 }
 
 }
@@ -680,10 +651,6 @@ h1 {
 
 
 @media (max-width: 550px) {
-
-div.top-header svg, div.bottom-header svg {
-    transform: scale(0.5);
-}
 
 div.menu {
     width: 60vw;
@@ -714,6 +681,10 @@ section.work div.work-content p {
     width: 100%;
 }
 
+header {
+    justify-content: space-between;
+}
+
 }
 
 
@@ -738,18 +709,6 @@ section.work div.work-content p {
 
     h1 {
         font-size: 28px;
-    }
-
-    div.bottom-header {
-        display: none;
-    }
-    
-    div.top-header {
-        left: 120px;
-    }
-
-    div.top-header svg {
-        transform: scale(0.4);
     }
 
     section.portfolio div.outer-container div.inner-container {
@@ -806,7 +765,7 @@ section.work div.work-content p {
     }
 
     p {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     div.menu {
