@@ -706,7 +706,6 @@ header {
     }
     
     section.hero {
-        transform: translateY(5%);
         height: 60vh;
     }
 
