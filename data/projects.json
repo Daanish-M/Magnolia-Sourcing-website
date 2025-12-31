@@ -1,0 +1,38 @@
+[
+    {
+        "id": "mari-and-fatou",
+        "title": "Mari & Fatou",
+        "thumb": "image1-m-f.jpg",
+        "file": "projects/mari-and-fatou.html"
+    }, 
+    {
+        "id": "naked-wardrobe",
+        "title": "Naked Wardrobe",
+        "thumb": "image1-n-w.jpg",
+        "file": "projects/naked-wardrobe.html"
+    },
+    {
+        "id": "chaps",
+        "title": "Chaps for Ralph Lauren",
+        "thumb": "chaps.webp",
+        "file": "projects/chaps.html"
+    },
+    {
+        "id": "perry-ellis",
+        "title": "Perry Ellis",
+        "thumb": "perry-ellis.jpg",
+        "file": "projects/perry-ellis.html"
+    },
+    {
+        "id": "rocawear",
+        "title": "Rocawear",
+        "thumb": "rocawear.webp",
+        "file": "projects/rocawear.html"
+    },
+    {
+        "id": "american-eagle",
+        "title": "American Eagle",
+        "thumb": "american-eagle.jpg",
+        "file": "projects/american-eagle.html"
+    }
+]
