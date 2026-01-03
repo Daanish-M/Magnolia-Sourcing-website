@@ -254,19 +254,19 @@ header.top h1 {
 }
 
 
-/* Building the about section */
+/* Building the sections' foundational styles */
 
-section#about {
+section#about, section#services {
     padding: 0 var(--padding) var(--padding) var(--padding);
     display: grid;
     grid-template-columns: var(--grid);
     gap: var(--gridGap);
     min-height: 50svh;
     opacity: 0;
-    transition: opacity 1s var(--easing);
+    transition: opacity 1.5s var(--easing);
 }
 
-section#about h2 {
+section#about h2, section#services h2 {
     padding-top: var(--padding);
     grid-column: span 3;
     border-top: solid var(--tertiaryDark) 0.5px;
@@ -275,13 +275,16 @@ section#about h2 {
     height: fit-content;
 }
 
-section#about div.content {
+section#about div.content, section#services div.accordion div.accordion-item {
     padding-top: var(--padding);
     display: grid;
     grid-column: span 9;
     grid-template-columns: subgrid;
     border-top: solid var(--tertiaryDark) 0.5px;
 }
+
+
+/* Building the about section */
 
 section#about div.content div.text {
     grid-column: span 5;
@@ -296,10 +299,6 @@ section#about div.content div.image img {
     height: auto;
 }
 
-/* Animations */
-
-
-
 
 /* Setting up the responsiveness (about section) */
 
@@ -311,6 +310,67 @@ section#about div.content div.image img {
 
     section#about div.content div.image {
         padding-top: var(--padding);
+    }
+
+}
+
+
+/* Building the services section */
+
+section#services div.accordion {
+    grid-column: span 9;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+
+section#services div.accordion div.accordion-item h3 {
+    grid-column: span 5;
+}
+
+section#services div.accordion div.accordion-item div.accordion-content {
+    grid-column: span 4;
+    padding-bottom: 48px;
+}
+
+
+/* Setting up the responsiveness (services section) */
+
+@media (max-width: 768px) {
+
+    section#services div.accordion div.accordion-item {
+        grid-template-columns: none;
+        display: block;
+        padding-bottom: var(--padding);
+    }
+
+    section#services div.accordion div.accordion-item h3 {
+        padding-bottom: var(--padding);
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+    }
+
+    section#services div.accordion div.accordion-item h3::after {
+        content: '›';
+        position: absolute;
+        right: 0;
+        top: -5px;
+        transform: rotate(90deg);
+        font-size: 2rem;
+        color: var(--tertiaryDark);
+        transition: transform 0.3s ease;
+    }
+
+    section#services div.accordion div.accordion-item div.accordion-content {
+        max-height: 0px;
+        overflow: hidden;
+        padding-bottom: 0px !important;
+        transition: padding-bottom 0.3s ease, max-height 0.3s ease;
+    }
+
+    section#services div.accordion div.accordion-item h3.active::after {
+        transform: rotate(270deg);
     }
 
 }
