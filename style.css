@@ -256,7 +256,7 @@ header.top h1 {
 
 /* Building the sections' foundational styles */
 
-section#about, section#services {
+section#about, section#services, section#work {
     padding: 0 var(--padding) var(--padding) var(--padding);
     display: grid;
     grid-template-columns: var(--grid);
@@ -266,7 +266,7 @@ section#about, section#services {
     transition: opacity 1.5s var(--easing);
 }
 
-section#about h2, section#services h2 {
+section#about h2, section#services h2, section#work h2 {
     padding-top: var(--padding);
     grid-column: span 3;
     border-top: solid var(--tertiaryDark) 0.5px;
@@ -275,7 +275,7 @@ section#about h2, section#services h2 {
     height: fit-content;
 }
 
-section#about div.content, section#services div.accordion div.accordion-item {
+section#about div.content, section#services div.accordion div.accordion-item, section#work div.work-gallery {
     padding-top: var(--padding);
     display: grid;
     grid-column: span 9;
@@ -371,6 +371,99 @@ section#services div.accordion div.accordion-item div.accordion-content {
 
     section#services div.accordion div.accordion-item h3.active::after {
         transform: rotate(270deg);
+    }
+
+}
+
+
+/* Building the work section */
+
+section#work div.work-gallery {
+    grid-column: span 9;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gridGap);
+    row-gap: 48px;
+}
+
+.project-card {
+    margin-bottom: 48px;
+}
+
+.project-card img {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 0.3s ease;
+}
+
+.project-card div.card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: var(--padding);
+}
+
+.project-card span.view {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding-right: 2.5rem;
+}
+
+.project-card:hover span.view {
+    opacity: 0.65;
+}
+
+.project-card:hover img {
+    opacity: 0.9;
+}
+
+
+/* Setting up the responsiveness (work section) */
+
+@media (max-width: 1090px) {
+
+    .project-card div.card-footer {
+        flex-direction: column;
+        gap: var(--gap);
+    }
+
+    .project-card span.view {
+        padding-right: 0;
+        opacity: 0.65;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    section#work div.work-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    section#work div.work-gallery {
+        grid-template-columns: 1fr; 
+        grid-column: span 9;
+        row-gap: var(--padding);
+    }
+
+    .project-card {
+        display: grid;
+        grid-template-columns: 4fr 5fr;
+        gap: var(--gap);
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    .project-card a {
+        display: contents;
     }
 
 }

@@ -1,7 +1,7 @@
 // Fading in sections on scroll
 document.addEventListener("DOMContentLoaded", function() {
 
-    const sectionIds = ['about', 'services', 'contact'];
+    const sectionIds = ['about', 'services', 'work'];
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -92,5 +92,40 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             teardownAccordion();
         }
+    });
+});
+
+
+// Fetch JSON data and populate the work gallery div
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('data/projects.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to load projects');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const gallery = document.querySelector('section#work div.work-gallery');
+        data.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <a href="${project.file}">
+                    <img src="images/${project.image}" alt="${project.title}">
+                    <div class="card-footer">
+                        <h3>${project.title}</h3>
+                        <span class="view">VIEW ›</span>
+                    </div>
+                </a>
+            `;
+            gallery.appendChild(card);
+        });
+    })
+    .catch(error => {
+        console.error('Error loading projects:', error);
+        const gallery = document.querySelector('section#work div.work-gallery');
+        gallery.innerHTML = '<p>Failed to load projects. Please try again later.</p>';
     });
 });
