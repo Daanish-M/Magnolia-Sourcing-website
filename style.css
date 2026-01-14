@@ -270,7 +270,7 @@ header.top h1 {
 
 /* Building the sections' foundational styles */
 
-section#about, section#services, section#work {
+section#about, section#services, section#work, section#contact {
     padding: 0 var(--padding) var(--padding) var(--padding);
     display: grid;
     grid-template-columns: var(--grid);
@@ -280,7 +280,7 @@ section#about, section#services, section#work {
     transition: opacity 1.5s var(--easing);
 }
 
-section#about h2, section#services h2, section#work h2 {
+section#about h2, section#services h2, section#work h2, section#contact h2 {
     padding-top: var(--padding);
     grid-column: span 3;
     border-top: solid var(--tertiaryDark) 0.5px;
@@ -289,7 +289,7 @@ section#about h2, section#services h2, section#work h2 {
     height: fit-content;
 }
 
-section#about div.content, section#services div.accordion div.accordion-item, section#work div.work-gallery {
+section#about div.content, section#services div.accordion div.accordion-item, section#work div.work-gallery, section#contact div.contact-info {
     padding-top: var(--padding);
     display: grid;
     grid-column: span 9;
@@ -398,6 +398,7 @@ section#work div.work-gallery {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gridGap);
     row-gap: 48px;
+    padding-bottom: 48px;
 }
 
 .project-card {
@@ -523,12 +524,12 @@ section#work div.work-gallery {
 }
 
 .modal-body img {
-    width: 90%;
-    max-width: 400px;
+    width: 75%;
+    max-width: 350px;
     height: auto;
     display: block;
     margin: 0 auto;
-    padding-bottom: 48px;
+    padding-bottom: 2rem;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center;
@@ -562,3 +563,55 @@ section#work div.work-gallery {
 
 
 /* Setting the responsiveness for the modal */
+
+@media (max-width: 600px) {
+
+    
+
+}
+
+
+/* Building the contact section */
+
+.contact-info a {
+    text-decoration: underline;
+    text-transform: none;
+    font-size: var(--fontBody);
+    transition: opacity 0.15s ease-out;
+}
+
+.contact-info a:hover {
+    opacity: 0.65;
+}
+
+.contact-info .enquiries {
+    grid-column: span 5;
+}
+
+.contact-info .footer {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding);
+}
+
+.contact-info .enquiries h3 {
+    padding-bottom: var(--padding);
+    padding-top: var(--padding);
+}
+
+.contact-info .enquiries h3:first-child {
+    padding-top: 0;
+}
+
+
+/* Setting the responsiveness (contact section) */
+
+@media (max-width: 600px) {
+
+    .contact-info .footer {
+        grid-column: span 9;
+        padding-top: 3.2rem;
+    }
+
+}

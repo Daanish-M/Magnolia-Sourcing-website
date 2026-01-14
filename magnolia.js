@@ -1,7 +1,7 @@
 // Fading in sections on scroll
 document.addEventListener("DOMContentLoaded", function() {
 
-    const sectionIds = ['about', 'services', 'work'];
+    const sectionIds = ['about', 'services', 'work', 'contact'];
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
