@@ -104,7 +104,7 @@ button {
     font: inherit;
     color: inherit;
     padding: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.15s ease-out;
 }
 
 button:hover {
@@ -411,7 +411,7 @@ section#work div.work-gallery {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.15s ease-out;
 }
 
 .project-card div.card-footer {
@@ -423,7 +423,7 @@ section#work div.work-gallery {
 
 .project-card span.view {
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.15s ease-out;
     padding-right: 2.5rem;
 }
 
@@ -488,22 +488,40 @@ section#work div.work-gallery {
 /* Building the slideshow modal for the work section */
 
 .modal {
-    display: none; 
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease-out;
     position: fixed; 
     z-index: 1000; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 40px);
+    max-width: 900px; 
     overflow: none;
     background-color: #fff; 
     padding: var(--padding);
 }
 
+.overlay {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease-out;
+    position: fixed;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    width: 100vw;
+    cursor: pointer;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+
 .modal-content {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    gap: 48px;
 }
 
 .modal-header {
@@ -564,9 +582,11 @@ section#work div.work-gallery {
 
 /* Setting the responsiveness for the modal */
 
-@media (max-width: 600px) {
+@media (max-width: 450px) {
 
-    
+    .modal-content {
+        gap: 80px;
+    }
 
 }
 

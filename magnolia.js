@@ -170,6 +170,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalBody = document.getElementById('modal-body');
         const counter = document.getElementById('slide-counter');
 
+        const overlay = document.getElementById('overlay');
+
         modalTitle.textContent = project.title;
         counter.textContent = `${index + 1} / ${projects.length}`;
 
@@ -179,13 +181,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
             modalBody.innerHTML = doc.body.innerHTML;
-            modal.style.display = 'block';
+            modal.style.opacity = '1';
+            modal.style.pointerEvents = 'all';
+            overlay.style.opacity = '1';
+            overlay.style.pointerEvents = 'all';
             lockBodyScroll();
         })
         .catch(error => {
             console.error('Error loading project details:', error);
             modalBody.innerHTML = '<p>Error loading project details.</p>';
-            modal.style.display = 'block';
+            modal.style.opacity = '1';
+            modal.style.pointerEvents = 'all';
+            overlay.style.opacity = '1';
+            overlay.style.pointerEvents = 'all';
         });
 
         // Update navigation button states
@@ -209,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.addEventListener('keydown', (e) => {
-        if (document.getElementById('project-modal').style.display === 'block') {
+        if (document.getElementById('project-modal').style.opacity === '1') {
             if (e.key === 'ArrowLeft') document.getElementById('prev-project').click();
             if (e.key === 'ArrowRight') document.getElementById('next-project').click();
             if (e.key === 'Escape') document.getElementById('modal-close').click();
@@ -220,11 +228,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Modal close functionality
 
     const modal = document.getElementById('project-modal');
+    const overlay = document.getElementById('overlay');
     const modalClose = document.getElementById('modal-close');
 
     if (modalClose) {
         modalClose.addEventListener('click', () => {
-            modal.style.display = 'none';
+            modal.style.opacity = '0';
+            modal.style.pointerEvents = 'none';
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
             unlockBodyScroll();
         });
     }
