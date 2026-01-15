@@ -522,6 +522,7 @@ section#work div.work-gallery {
     display: flex;
     flex-direction: column;
     gap: 48px;
+    height: 100%;
 }
 
 .modal-header {
@@ -584,9 +585,7 @@ section#work div.work-gallery {
 
 @media (max-width: 450px) {
 
-    .modal-content {
-        gap: 80px;
-    }
+    
 
 }
 
