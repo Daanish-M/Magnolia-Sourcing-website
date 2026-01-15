@@ -487,11 +487,15 @@ section#work div.work-gallery {
 
 /* Building the slideshow modal for the work section */
 
-.modal {
+
+.modal, .overlay {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.15s ease-out;
-    position: fixed; 
+    position: fixed;
+}
+
+.modal {
     z-index: 1000; 
     left: 50%;
     top: 50%;
@@ -501,13 +505,10 @@ section#work div.work-gallery {
     overflow: none;
     background-color: #fff; 
     padding: var(--padding);
+    border-radius: 4px;
 }
 
 .overlay {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.15s ease-out;
-    position: fixed;
     backdrop-filter: blur(5px);
     background-color: rgba(0, 0, 0, 0.3);
     height: 100vh;
@@ -585,7 +586,7 @@ section#work div.work-gallery {
 
 @media (max-width: 450px) {
 
-    
+
 
 }
 
