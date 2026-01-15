@@ -585,9 +585,7 @@ section#work div.work-gallery {
 
 @media (max-width: 450px) {
 
-    .modal-body {
-        height: 60svh;
-    }
+    
 
 }
 
