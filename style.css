@@ -532,10 +532,10 @@ section#work div.work-gallery {
 }
 
 .modal-body {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 70svh;
 }
 
 .modal-title {
@@ -585,7 +585,9 @@ section#work div.work-gallery {
 
 @media (max-width: 450px) {
 
-    
+    .modal-body {
+        height: 60svh;
+    }
 
 }
 

@@ -231,13 +231,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById('overlay');
     const modalClose = document.getElementById('modal-close');
 
-    if (modalClose) {
+    if (overlay && modalClose) {
         modalClose.addEventListener('click', () => {
             modal.style.opacity = '0';
             modal.style.pointerEvents = 'none';
             overlay.style.opacity = '0';
             overlay.style.pointerEvents = 'none';
             unlockBodyScroll();
+        });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                modal.style.opacity = '0';
+                modal.style.pointerEvents = 'none';
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
+                unlockBodyScroll();
+            }
         });
     }
 });
