@@ -373,7 +373,7 @@ section#services div.accordion div.accordion-item div.accordion-content {
         transform: rotate(90deg);
         font-size: 2rem;
         color: var(--tertiaryDark);
-        transition: transform 0.3s ease;
+        transition: all 0.3s ease;
     }
 
     section#services div.accordion div.accordion-item div.accordion-content {
@@ -385,6 +385,7 @@ section#services div.accordion div.accordion-item div.accordion-content {
 
     section#services div.accordion div.accordion-item h3.active::after {
         transform: rotate(270deg);
+        color: #000;
     }
 
 }

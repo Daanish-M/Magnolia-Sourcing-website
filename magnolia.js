@@ -56,12 +56,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     otherContent.style.maxHeight = '0px';
                     otherContent.style.paddingBottom = '0px';
                     otherHeader.classList.remove('active');
+                    otherItem.style.borderTop = 'solid rgba(35, 31, 32, 0.5) 0.5px';
                 });
 
                 if (!isExpanded) {
                     content.style.maxHeight = `${content.scrollHeight}px`;
                     content.style.paddingBottom = '48px';
                     header.classList.add('active');
+                    item.style.borderTop = 'solid #000 0.5px';
                 }
               
             };
@@ -78,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
             content.style.maxHeight = '';
             content.style.paddingBottom = '';
             header.classList.remove('active');
+            item.style.borderTop = 'solid rgba(35, 31, 32, 0.5) 0.5px';
         });
     }
 
