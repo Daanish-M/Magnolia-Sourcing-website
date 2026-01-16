@@ -1,4 +1,5 @@
-// Fading in sections on scroll
+// Fading in sections on scroll using IntersectionObserver API
+
 document.addEventListener("DOMContentLoaded", function() {
 
     const sectionIds = ['about', 'services', 'work', 'contact'];
@@ -8,14 +9,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (entry.isIntersecting) {
                 const el = entry.target;
                 el.style.opacity = '1';
-            } else {
-                const el = entry.target;
-                el.style.opacity = '0';
+
+                observer.unobserve(el);
             }
         });
     }, {
         rootMargin: '0px',
-        threshold: 0.05
+        threshold: 0.1
     });
 
     sectionIds.forEach(id => {
@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// Get the length of the signature SVG path and log it to the console
+// Get the length of the signature SVG path and log it to the console for animation purposes
+
 const path = document.querySelector('header.top div.signature svg path');
 const length = path.getTotalLength();
 
@@ -110,6 +111,29 @@ function unlockBodyScroll() {
 }
 
 
+// Open and close functions for modal
+
+function openModal() {
+    const modal = document.getElementById('project-modal');
+    const overlay = document.getElementById('overlay');
+
+    modal.style.opacity = '1';
+    modal.style.pointerEvents = 'all';
+    overlay.style.opacity = '1';
+    overlay.style.pointerEvents = 'all';
+}
+
+function hideModal() {
+    const modal = document.getElementById('project-modal');
+    const overlay = document.getElementById('overlay');
+
+    modal.style.opacity = '0';
+    modal.style.pointerEvents = 'none';
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+}
+
+
 // Fetch JSON data and populate the work gallery div + modal functionality
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -165,12 +189,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (index < 0 || index >= projects.length) return;
 
         const project = projects[index];
-        const modal = document.getElementById('project-modal');
+        //const modal = document.getElementById('project-modal');
         const modalTitle = document.getElementById('modal-title');
         const modalBody = document.getElementById('modal-body');
         const counter = document.getElementById('slide-counter');
 
-        const overlay = document.getElementById('overlay');
+        //const overlay = document.getElementById('overlay');
 
         modalTitle.textContent = project.title;
         counter.textContent = `${index + 1} / ${projects.length}`;
@@ -181,19 +205,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
             modalBody.innerHTML = doc.body.innerHTML;
-            modal.style.opacity = '1';
-            modal.style.pointerEvents = 'all';
-            overlay.style.opacity = '1';
-            overlay.style.pointerEvents = 'all';
+            openModal();
             lockBodyScroll();
         })
         .catch(error => {
             console.error('Error loading project details:', error);
             modalBody.innerHTML = '<p>Error loading project details.</p>';
-            modal.style.opacity = '1';
-            modal.style.pointerEvents = 'all';
-            overlay.style.opacity = '1';
-            overlay.style.pointerEvents = 'all';
+            openModal();
         });
 
         // Update navigation button states
@@ -233,19 +251,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (overlay && modalClose) {
         modalClose.addEventListener('click', () => {
-            modal.style.opacity = '0';
-            modal.style.pointerEvents = 'none';
-            overlay.style.opacity = '0';
-            overlay.style.pointerEvents = 'none';
+            hideModal();
             unlockBodyScroll();
         });
 
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
-                modal.style.opacity = '0';
-                modal.style.pointerEvents = 'none';
-                overlay.style.opacity = '0';
-                overlay.style.pointerEvents = 'none';
+                hideModal();
                 unlockBodyScroll();
             }
         });

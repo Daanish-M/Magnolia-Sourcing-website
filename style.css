@@ -544,8 +544,8 @@ section#work div.work-gallery {
 }
 
 .modal-body img {
-    width: 75%;
-    max-width: 350px;
+    width: 70%;
+    max-width: 300px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -584,11 +584,7 @@ section#work div.work-gallery {
 
 /* Setting the responsiveness for the modal */
 
-@media (max-width: 450px) {
-
-
-
-}
+/* Already responsive */
 
 
 /* Building the contact section */
